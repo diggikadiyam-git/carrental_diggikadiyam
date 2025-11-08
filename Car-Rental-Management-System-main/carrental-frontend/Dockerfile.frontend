@@ -1,0 +1,23 @@
+# =========================
+# Stage 1: Build React/Vite Frontend
+# =========================
+FROM node:18 AS build-stage
+
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+# =========================
+# Stage 2: Serve with Tomcat
+# =========================
+FROM tomcat:9.0-jdk17-temurin
+
+# Remove default Tomcat webapps
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+# ✅ Copy React build output into ROOT
+COPY --from=build-stage /app/dist /usr/local/tomcat/webapps/ROOT/
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
