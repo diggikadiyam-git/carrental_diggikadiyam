@@ -7,7 +7,7 @@ A full-stack car rental platform built using **Spring Boot (backend)** and **Rea
 ## 📸 Application Preview
 
 ### 🏠 Dashboard
-<img src=""C:\Users\diggi\OneDrive\Desktop\cicd\carentla images\1.jpg"" width="700"/>
+<img src="images-output/2.jpg" width="700"/>
 
 ### 🔑 Login Page
 <img src="images-output/1.jpg" width="700"/>
